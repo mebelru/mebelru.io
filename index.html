@@ -889,26 +889,26 @@ max-width: 500px;
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="form-group">
-                                        <input type="text" class="form_inputs" name="name" placeholder="Имя">
+                                        <input type="text" class="form-control" placeholder="Имя" style=" border-radius: 0; background: #f7f7f7; border: 1px solid #f7f7f7;"
+                                        id="validationDefault01" name="fio2" value="" maxlength="13" minlength="3" pattern="^[А-Яа-яЁё\s]+$" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form_inputs" name="email" placeholder="Ваша почта">
+                                        <input type="email" class="form-control" name="email1" placeholder="Ваша почта" style=" border-radius: 0; background: #f7f7f7; border: 1px solid #f7f7f7;"  id="validationDefault01" value="" maxlength="13" minlength="5" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" class="form_inputs" name="phone no" placeholder="Телефонный номер">
+                                        <input type="tel" class="form-control" name="tel2" style=" border-radius: 0; background: #f7f7f7; border: 1px solid #f7f7f7;"  id="validationDefault01" placeholder="+7-xxx-xxx-xx-xx" maxlength="12" minlength="11" name="tel" pattern="+7-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}" value="" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-12 no-padding">
                                 <div class="form-group">
-                                <textarea name="message" id="message" class="form_inputs form_inputs_two" rows="6" cols="25" placeholder="Напишите название выбранной ткани и тип вашей мебели"></textarea>
+                                <textarea name="message" id="message" class="form-control" rows="6" cols="25" placeholder="Напишите название выбранной ткани и тип вашей мебели" style=" border-radius: 0; background: #f7f7f7; border: 1px solid #f7f7f7;"></textarea>
                                 </div>
-                                <div class="button_div">
-                                    <a href="#." class="btn btn-blue btn-large text-extra-small width-100">Отправить</a>
+                                <input id="submit" type="submit" value="Отправить форму" style="width:100%; background-color: #4682B4; color: #FFFFFF;">
                                 </div>
                             </div>
                         </form>
@@ -936,6 +936,8 @@ max-width: 500px;
             <p class="text-light-gray margin-10px-bottom" style="font-size: 12px;">Дизайн ThemesIndustry</p>
         </div>
     </div>
+
+<!--Заказ оценки по фото -->
 <div id="iw-modal-photo" class="iw-modal">
 <div class="iw-modal-wrapper">
 <div class="iw-CSS-modal-inner">
@@ -944,37 +946,37 @@ max-width: 500px;
 <a href="#close" title="Закрыть" class="iw-close">×</a>
 </div>
 <div class="iw-modal-text">
-<form>
+<form action="sendb.php" method="post"  enctype="multipart/form-data" sid="feedback-form">
  <div class="form-row">
     <div class="col-md-6 mb-3">
          <label for="validationDefault01">Ваше имя</label>
-          <input type="text" class="form-control" id="validationDefault01" placeholder="Иван" value="" required>
+          <input type="text" class="form-control" id="validationDefault01" placeholder="Иван" name="fio1" value="" maxlength="13" minlength="3" pattern="^[А-Яа-яЁё\s]+$" required>
     </div>
     <div class="col-md-6 mb-3">
-         <label for="validationDefault01">Ваш номер</label>
-          <input type="text" class="form-control" id="validationDefault01" placeholder="+7(000)000-00-00" value="" required>
-
+        <label for="validationDefault01">Ваш номер</label>
+          <input type="text" class="form-control" id="validationDefault01" placeholder="+7-xxx-xxx-xx-xx" maxlength="12" minlength="11" name="tel1" pattern="+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" value="" required>
     </div>
     <div class="col-md-6 mb-3">
     <label for="exampleFormControlFile1">Выберите фото</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1"  name="fileFF[]" multiple id="fileFF" required>
     </div>
     <div class="col-md-6 mb-3">
 <label for="exampleFormControlInput1">Ваш email</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+    <input type="email1" class="form-control" name="email1" placeholder="Ваша почта" id="validationDefault01" value="" maxlength="13" minlength="5" required>
 </div>
 </div>
   </div>
   <div class="col-md-12 mb-3">    
 <p>Нажимая на кнопку «отправить», вы даете <a href="/politika-konfidentsialnosti/" target="_blank">согласие на обработку своих персональных данных</a></p>
 </div>
-<button class="btn btn-primary" type="submit">Отправить</button>
+<input id="submit" type="submit" value="Отправить фото">
  </form>
 </div>
 </div>
 </div>  
 </div>
 
+<!--Обратный звонок -->
 <div id="iw-modal-call" class="iw-modal">
 <div class="iw-modal-wrapper">
 <div class="iw-CSS-modal-inner">
@@ -983,18 +985,17 @@ max-width: 500px;
 <a href="#close" title="Закрыть" class="iw-close">×</a>
 </div>
 <div class="iw-modal-text">    
-<form>
+<form action="senda.php" method="post">
  <div class="form-row">
     <div class="col-md-6 mb-3">
          <label for="validationDefault01">Ваше имя</label>
-          <input type="text" class="form-control" id="validationDefault01" placeholder="Иван" name="fio" value="" required>
+          <input type="text" class="form-control" id="validationDefault01" placeholder="Иван" name="fio" value="" maxlength="13" minlength="3" pattern="^[А-Яа-яЁё\s]+$" required>
     </div>
     <div class="col-md-6 mb-3">
          <label for="validationDefault01">Ваш номер</label>
-          <input type="text" class="form-control" id="validationDefault01" placeholder="+7(000)000-00-00" name="tel" value="" required>
+          <input type="text" class="form-control" id="validationDefault01" placeholder="+7-xxx-xxx-xx-xx" maxlength="12" minlength="11" name="tel" pattern="+7\-[0-9]{3}\-[0-9]{3}\-[0-9]{2}\-[0-9]{2}" value="" required>
 
     </div>
-    <div id="form_result"></div>
   <div class="col-md-12 mb-3">    
 <p>Нажимая на кнопку «отправить», вы даете <a href="/politika-konfidentsialnosti/" target="_blank">согласие на обработку своих персональных данных</a></p>
 </div>
@@ -1030,6 +1031,7 @@ simplebox.start('a[rel=simplebox_group]');
 });
 }
 })();</script>
+
 <script type="text/javascript">
     var name = $('input[name=fio]').val();
  var tel = $('input[name=tel]').val();
@@ -1040,7 +1042,7 @@ simplebox.start('a[rel=simplebox_group]');
  if(tel ==""){
  otpravka = false;
  }
- 
+
  dannie = {'polz_name':name, 'polz_tel':tel};
 
  if(otpravka)
@@ -1051,6 +1053,28 @@ simplebox.start('a[rel=simplebox_group]');
  }, 'json');
  }
 </script>
+
+<script>
+document.getElementById('feedback-form').addEventListener('submit', function(evt){
+  var http = new XMLHttpRequest(), f = this;
+  evt.preventDefault();
+  http.open("POST", "sendb.php", true);
+  http.onreadystatechange = function() {
+    if (http.readyState == 4 && http.status == 200) {
+      alert(http.responseText);
+      if (http.responseText.indexOf(f.nameFF.value) == 0) { // очистить поле сообщения, если в ответе первым словом будет имя отправителя
+        f.messageFF.removeAttribute('value');
+        f.messageFF.value='';
+      }
+    }
+  }
+  http.onerror = function() {
+    alert('Извините, данные не были переданы');
+  }
+  http.send(new FormData(f));
+}, false);
+</script>
+
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.appear.js"></script>
